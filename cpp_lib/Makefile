@@ -12,7 +12,7 @@ all_objects = $(addprefix bin/,$(all_sources:.cpp=.o))
 
 # ****************************************************
 # Build lib
-all: lib
+all: lib main
 
 lib:
 	mkdir -p bin

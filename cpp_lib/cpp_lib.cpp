@@ -13,6 +13,7 @@ int myProcessor::process(double *d, int size) {
         d[i] = d[i] * d[i];
     }
     return 0;
+    //return sth <0 if error
 }
 
 unsigned int myProcessorInit(int exp_in, int size_in) {
