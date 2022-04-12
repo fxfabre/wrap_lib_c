@@ -18,6 +18,10 @@ lib:
 	mkdir -p bin
 	$(CC) $(CFLAGS) -shared -c cpp_lib.cpp -o bin/lib.so
 
+clean:
+	rm -rf ./bin
+	rm -f *.o
+	rm -f main
 
 # ****************************************************
 # Build lib
@@ -39,10 +43,10 @@ lib:
 # ****************************************************
 # Targets needed to bring the executable up to date
 
-#main: main.o cpp_lib.o
-#	$(CC) $(CFLAGS) -o main main.o cpp_lib.o
-#
-#main.o: main.cpp cpp_lib.h
-#	$(CC) $(CFLAGS) -c main.cpp
-#
-#cpp_lib.o: cpp_lib.h
+main: main.o cpp_lib.o
+	$(CC) $(CFLAGS) -o main main.o cpp_lib.o
+
+main.o: main.cpp cpp_lib.h
+	$(CC) $(CFLAGS) -c main.cpp
+
+cpp_lib.o: cpp_lib.h
